@@ -1,0 +1,47 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 30 00:45:25 2020
+
+@author: saipr
+"""
+
+class MoneyBox:
+    def __init__(self, capacity):
+        self.num_of_coins = 0
+        self.possible = False
+        self.capacity = capacity
+        # Your code here
+
+    def can_add(self, v):
+        # True, if you can add v coins, False otherwise
+        # Your code here
+        
+        if self.num_of_coins+v <= self.capacity :
+            self.possible = True       
+        
+
+    def add(self, v):
+        # put v coins to moneybox
+        # Your code here
+        self.can_add(v)
+        
+        if self.possible:
+            self.num_of_coins+=v
+            self.possible = False
+        
+        else :
+            print("Can't add requested money! Over the capacity")
+            
+new  = MoneyBox(15)
+print("Add 13")
+new.add(13)
+print("The number of coins:",new.num_of_coins)
+print("Add 3")
+new.add(3)
+print("The number of coins:",new.num_of_coins)
+print("Add 2")
+new.add(2)
+print("The number of coins:",new.num_of_coins)
+print("Add 5")
+new.add(5)
+print("The number of coins:",new.num_of_coins)
